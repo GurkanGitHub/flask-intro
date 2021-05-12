@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flask intro</title>
+    <link href = "static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<div class = "container">
+   <h2>Welcome to flask!</h2>
+    <p>Click <a href="/">here</a> to go home.</p>
+        {% for message in get_flashed_messages() %}
+            {{message}}
+        {% endfor %}
+</div>
+
+
+</body>
+</html>

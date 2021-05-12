@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Flask intro- login page</title>
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div class="container">
+    <h1>Please login</h1>
+    <br>
+    <form action="" method="post">
+        <input type="text" placeholder="Username" name="username" value="{{request.form.username}}">
+        <input type="password" placeholder="Password" name="password" value="{{request.form.password}}">
+        <input class="btn btn-default" type="submit" value="login">
+    </form>
+    {% if error %} <!-- used for python like expressions such as conditionals and loops
+                       basically if that error variable evaluates to not none (if there is an actual value)
+                       than below paragraph tags are displayed along with the content
+                        of course this error variable will be replaced with actual error message-->
+    <p class="error"><strong>Error:</strong>{{error}}></p> <!--double curly brace tag is used for variables or
+                                                            the result of expressions,
+                                                            in this case it is used for variable
+                                                            return render_template("login.html", error=error)-->
+    {% endif %}
+    {% for message in get_flashed_messages() %}
+        {{message}}
+    {% endfor %}
+</div>
+
+</body>
+</html>
